@@ -1,5 +1,10 @@
+//
+// A POC to the Huge Dirty Cow POC. This program overwrites the system's huge zero page.
 // Compile with "gcc -pthread main.c"
-// 29.11.17
+//
+// November 2017
+// Bindecy
+//
 
 #define _GNU_SOURCE
 
@@ -43,7 +48,7 @@ void *unmap_and_read_thread(struct thread_args *args) {
         
         lseek(args->mem_fd2, (off_t)(args->thp_map + args->off), SEEK_SET);
         usleep(10); // We placed the zero page and marked its PMD as dirty. 
-					// Give get_user_pages() another chance before madvise()-ing again.
+                    // Give get_user_pages() another chance before madvise()-ing again.
     }
     
     return NULL;
