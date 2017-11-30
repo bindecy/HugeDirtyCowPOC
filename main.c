@@ -1,5 +1,5 @@
 //
-// A POC to the Huge Dirty Cow POC. This program overwrites the system's huge zero page.
+// The Huge Dirty Cow POC. This program overwrites the system's huge zero page.
 // Compile with "gcc -pthread main.c"
 //
 // November 2017
